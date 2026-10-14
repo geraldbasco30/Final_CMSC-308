@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="description" content="Sign in to your Tasky project management workspace.">
+ <title>Sign in · Tasky</title>
+ <link rel="icon" href="/favicon.svg">
+ <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="login-page">
+ <main class="login-shell">
+  <aside class="login-intro">
+   <a class="logo lockup" href="/login.html" aria-label="Tasky home"><span class="mark">✳</span><span>tasky<span class="brand-dot">.</span></span></a>
+   <h1>Better teamwork.<br><em>Brighter outcomes.</em></h1>
+   <p>A focused workspace for the projects that move your team forward.</p>
+   <div class="login-art" aria-hidden="true">
+    <div class="art-card"><span class="art-icon">✓</span> Your team's work, beautifully organized <span>↗</span></div>
+    <div class="art-columns"><div><div class="art-label">TO DO</div><span></span><span></span><span></span></div><div><div class="art-label">IN PROGRESS</div><span></span><span></span></div><div><div class="art-label">DONE</div><span></span><span></span><span></span></div></div>
+   </div>
+  </aside>
+  <section class="login-panel">
+   <div class="login-form-wrap">
+    <div class="login-mobile-logo logo"><span class="mark">✳</span><span>tasky<span class="brand-dot">.</span></span></div>
+    <div class="login-kicker">WELCOME BACK</div>
+    <h2>Sign in to Tasky</h2>
+    <p>Enter your details to access your workspace.</p>
+    <div class="login-success" id="login-success" role="status" hidden>Account created successfully. Sign in to continue.</div>
+    <div class="login-success" id="logout-success" role="status" hidden>You have signed out securely.</div>
+    <div class="login-error" id="login-error" role="alert" hidden>Invalid email or password. Please try again.</div>
+    <form action="/login" method="post">
+     <input type="hidden" name="_csrf" id="csrf">
+     <label for="login-email">Email address<input id="login-email" name="username" type="email" required autocomplete="username" placeholder="name@company.com"></label>
+     <label for="login-password">Password<input id="login-password" name="password" type="password" required autocomplete="current-password" placeholder="Your password"></label>
+     <button id="login-submit" class="btn primary wide" type="submit" disabled>Sign in <span>→</span></button>
+    </form>
+    <p class="auth-switch">New to Tasky? <a href="/register.html">Create an account</a></p>
+    <div class="login-security">Your workspace administrator or project lead can grant access to projects after you sign in.</div>
+    <div class="login-footnote">Tasky · Secure project and task management</div>
+   </div>
+  </section>
+ </main>
+ <script src="/js/login.js" defer></script>
+</body>
+</html>

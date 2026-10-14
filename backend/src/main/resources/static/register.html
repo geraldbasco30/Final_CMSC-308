@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="description" content="Create your Tasky account and collaborate on team projects.">
+ <title>Create account · Tasky</title>
+ <link rel="icon" href="/favicon.svg">
+ <link rel="stylesheet" href="/css/style.css">
+ <script src="/js/registration.js" defer></script>
+</head>
+<body class="login-page registration-page">
+ <main class="login-shell">
+  <aside class="login-intro">
+   <a class="logo lockup" href="/login.html" aria-label="Tasky home"><span class="mark">✳</span><span>tasky<span class="brand-dot">.</span></span></a>
+   <h1>Every great project<br><em>starts together.</em></h1>
+   <p>Create your account, join the right team, and keep your work moving in one beautifully organized space.</p>
+   <div class="login-art" aria-hidden="true">
+    <div class="art-card"><span class="art-icon">✓</span> Make work simpler, together <span>↗</span></div>
+    <div class="art-columns"><div><div class="art-label">TO DO</div><span></span><span></span><span></span></div><div><div class="art-label">IN PROGRESS</div><span></span><span></span></div><div><div class="art-label">DONE</div><span></span><span></span><span></span></div></div>
+   </div>
+  </aside>
+  <section class="login-panel">
+   <div class="login-form-wrap">
+    <div class="login-mobile-logo logo"><span class="mark">✳</span><span>tasky<span class="brand-dot">.</span></span></div>
+    <div class="login-kicker">GET STARTED</div>
+    <h2>Create your account</h2>
+    <p id="registration-description">One account for all of your team's projects.</p>
+    <div class="login-error" id="registration-error" role="alert" aria-live="polite" hidden></div>
+    <form id="registration-form" autocomplete="on">
+     <div class="owner-banner" id="owner-banner" hidden><strong>Set up your workspace</strong><span>This is the first account. It will be the workspace administrator, able to create projects and invite your team.</span></div>
+     <label id="setup-code-field" for="setup-code" hidden>Workspace setup code<input id="setup-code" name="setupToken" type="password" autocomplete="off" placeholder="Enter the setup code from your hosting administrator"></label>
+     <label for="full-name">Full name<input id="full-name" name="name" type="text" autocomplete="name" maxlength="90" minlength="2" placeholder="Your full name" required></label>
+     <label for="email">Work email<input id="email" name="email" type="email" autocomplete="email" maxlength="160" placeholder="name@company.com" required></label>
+     <label for="password">Password<input id="password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="120" placeholder="12 characters minimum" required></label>
+     <div class="register-password-note" id="password-note">Use at least 12 characters (maximum 72 UTF-8 bytes). A unique passphrase works well.</div>
+     <label for="confirm-password">Confirm password<input id="confirm-password" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Re-enter your password" required></label>
+     <button id="register-submit" class="btn primary wide" type="submit" disabled>Create account <span>→</span></button>
+    </form>
+    <p class="auth-switch">Already have an account? <a href="/login.html">Sign in</a></p>
+    <div class="login-security" id="registration-role-note">New accounts start as <strong>Members</strong>. A workspace administrator or project lead can add you to projects after registration.</div>
+    <div class="login-footnote">Tasky · Secure project and task management</div>
+   </div>
+  </section>
+ </main>
+</body>
+</html>

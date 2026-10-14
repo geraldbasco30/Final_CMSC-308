@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff"><meta name="description" content="Tasky — a thoughtful space to plan projects and move work forward."><title>Tasky — Your workspace, in sync.</title><link rel="icon" href="/favicon.svg"><link rel="stylesheet" href="/css/style.css?v=2.7.0"></head>
+<body><div id="app"><div class="boot"><span class="boot-logo">✳</span><div>Setting up your workspace...</div></div></div><div id="overlays"></div><div id="toasts" aria-live="polite" aria-atomic="true"></div>
+<script type="module" src="/js/app.js?v=2.7.0"></script><script>
+// Independent of app.js: even if the module fails to download or parse,
+// users receive an actionable error instead of an endless spinner.
+window.setTimeout(function(){
+  var app=document.getElementById('app');
+  if(!app || !app.querySelector('.boot')) return;
+  app.innerHTML='<main class="startup-screen"><div class="startup-card"><h1>Tasky could not finish loading</h1><p>The application script or workspace request did not complete. Confirm that Spring Boot is running, refresh the page, and check your browser Console (F12) for an error.</p><button class="btn primary" id="tasky-reload">Reload Tasky</button></div></main>';
+  document.getElementById('tasky-reload').addEventListener('click',function(){window.location.reload();});
+},12000);
+</script></body></html>

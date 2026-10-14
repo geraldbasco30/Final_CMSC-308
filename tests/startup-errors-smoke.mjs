@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const nodes={},listeners={};
+const element=id=>nodes[id]??(nodes[id]={innerHTML:'',addEventListener(name,cb){listeners[`${id}:${name}`]=cb;}});
+global.document={getElementById:element};
+global.window={addEventListener(){}};
+global.location={hash:'',href:'',reload(){}};
+global.fetch=async(url)=>{
+ if(String(url)==='/api/bootstrap')return {ok:false,status:500,redirected:false,json:async()=>({error:'Internal Server Error'})};
+ throw new Error('Unexpected URL: '+url);
+};
+await import('../backend/src/main/resources/static/js/app.js');
+await new Promise(resolve=>setTimeout(resolve,60));
+assert.match(nodes.app.innerHTML,/Unable to connect to Tasky/);
+assert.match(nodes.app.innerHTML,/Internal Server Error/);
+assert.match(nodes.app.innerHTML,/Retry connection/);
+assert.equal(typeof listeners['retry-startup:click'],'function');
+const html=fs.readFileSync(new URL('../backend/src/main/resources/static/index.html',import.meta.url),'utf8');
+assert.match(html,/Tasky could not finish loading/);
+assert.match(html,/js\/app\.js\?v=2\.7\.0/);
+console.log('PASS: bootstrap HTTP 500 produces visible retry, with independent script-load fallback and cache-busted assets');

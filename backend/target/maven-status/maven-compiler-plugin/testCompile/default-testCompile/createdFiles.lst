@@ -1,0 +1,3 @@
+com\tasky\app\EmptyWorkspaceRegistrationIntegrationTest.class
+com\tasky\app\TaskyServiceIntegrationTest.class
+com\tasky\app\WorkspaceSetupTokenIntegrationTest.class
